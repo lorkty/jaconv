@@ -7,7 +7,7 @@ void len();
 void square();
 void volume();
 void quit();
-char menu();
+void menu();
 
 
 float equalmeters[4] = {0.001, 0.01, 1, 1000}; // mm, cm, m, km - 0.001, 0.01, 1, 1000
@@ -30,8 +30,7 @@ int main(){
   system("clear");
   while(run == 'r'){
     system("clear");
-    run = 'q';
-    run = menu();
+    menu();
   }
   return 0;
 }
@@ -82,7 +81,7 @@ void volume(){
   getchar();
 }
 
-char menu(){
+void menu(){
   int action;
   int i;
 
@@ -96,11 +95,9 @@ char menu(){
 
   if (action >= 0 && action <= sizeof(menuopt) / sizeof(menuopt[0])){
     menuopt[action].func();
-    return run;
   }
   else{
     printf("Ошибка ввода. Повторите попытку. \n");
-    return run;
   }
 }
 void quit(){
